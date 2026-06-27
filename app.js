@@ -28,7 +28,7 @@ const i18n = {
   en: {
     pinMsg: "taking editing coms more, so might not be active as usual.",
     about: "About",
-    bio: "hi! my name is collin, but online i go by donfifthy, don, or mainly known as sevy. currently playing mostly aim trainers, overwatch and osu!mania. i was born and raised in south korea and i am fully korean.",
+    bio: "i edit videos for a living",
     pcSpecs: "PC Specs",
     peripherals: "Peripherals",
     searchPh: "Search peripherals",
@@ -73,12 +73,14 @@ const i18n = {
     gpu: "GPU",
     motherboard: "Motherboard",
     ram: "RAM",
-    storage: "Storage"
+    storage: "Storage",
+    displayName: "Jay",
+    monitorValue: 'freeflow 240hz 24"'
   },
   kr: {
     pinMsg: "편집 커미션을 많이 받고 있어서 평소만큼 활동하지 않을 수 있습니다.",
     about: "소개",
-    bio: "안녕하세요! 제 이름은 정현우이고, 온라인에서는 don 또는 주로 sevy로 불립니다. 현재 코박스, 오버워치, 그리고 osu!mania를 주로 플레이합니다.",
+    bio: "12년생 편집자",
     pcSpecs: "컴 사양",
     peripherals: "장비",
     searchPh: "장비 검색",
@@ -123,7 +125,9 @@ const i18n = {
     gpu: "글카",
     motherboard: "메인보드",
     ram: "램",
-    storage: "SSD"
+    storage: "SSD",
+    displayName: "현우",
+    monitorValue: "프리플로우 240hz 24인치"
   }
 };
 
@@ -138,6 +142,7 @@ const GEAR_DATA = [
   { category: "mousepads", name: "Artisan FX Zero", sub: "Softness: Mid" },
   { category: "keyboards", name: "AULA Hero 68HE", sub: "AULA" },
   { category: "keyboards", name: "MAD 60HE", sub: "Madlions" },
+  { category: "keyboards", name: "VGN FLASH 68", sub: "VGN" },
   { category: "tablets", name: "CTL-472", sub: "Wacom" },
   { category: "mousefeet", name: "Universal U9", sub: "X-Raypad" },
   { category: "mousefeet", name: "Ultraglide Purple", sub: "Meow gaming gear" },
@@ -147,11 +152,11 @@ const GEAR_DATA = [
 
 const HOME_GEAR = [
   { label: "mice", value: "OP1w 4K", icon: "mouse" },
-  { label: "keyboards", value: "AULA Hero 68HE", icon: "keyboard" },
+  { label: "keyboards", value: "VGN FLASH 68", icon: "keyboard" },
   { label: "mousepads", value: "Artisan FX Zero", icon: "pad" },
   { label: "mousefeet", value: "Universal U9", icon: "mouse" },
   { label: "microphones", value: "AM8T", icon: "mic" },
-  { label: "monitors", value: "프리플로우 240hz", icon: "monitor" }
+  { label: "monitors", valueKey: "monitorValue", icon: "monitor" }
 ];
 
 // Game configs stay in English per request, only titles translate
@@ -322,7 +327,7 @@ function renderHome() {
       <div class="gear-icon">${icons[g.icon]}</div>
       <div>
         <div class="gear-label">${t(g.label.toLowerCase()) || g.label}</div>
-        <div class="gear-value">${g.value}</div>
+        <div class="gear-value">${g.valueKey ? t(g.valueKey) : g.value}</div>
       </div>
     </div>
   `).join('');
@@ -540,7 +545,7 @@ function initApp() {
       <div class="mobile-header">
         <div class="mobile-header-left">
           <img src="avatar.png" alt="sevy" onerror="this.src='https://via.placeholder.com/64'">
-          <span>sevy</span>
+          <span>${t('displayName')}</span>
         </div>
         <button class="mobile-nav-toggle" id="mobileNavToggle">
           ${icons.menu}
@@ -553,13 +558,13 @@ function initApp() {
           <aside class="sidebar">
             <div class="sidebar-profile">
               <img src="avatar.png" alt="sevy" class="sidebar-pfp" onerror="this.src='https://via.placeholder.com/64'">
-              <div class="sidebar-name">sevy</div>
+              <div class="sidebar-name">${t('displayName')}</div>
               <div class="sidebar-handle">@donfifthy</div>
             </div>
             <div class="sidebar-socials">
               <a href="#" target="_blank" rel="noopener noreferrer" title="YouTube">${icons.youtube}</a>
               <a href="https://instagram.com/donicaim" target="_blank" rel="noopener noreferrer" title="Instagram">${icons.instagram}</a>
-              <a href="https://discordd.com/users/1511625910170943579" class="discord-btn" target="_blank" rel="noopener noreferrer" title="Discord">${icons.discord}<span class="discord-hover">@donfifthy</span></a>
+              <a href="https://discord.com/users/1511625910170943579" class="discord-btn" target="_blank" rel="noopener noreferrer" title="Discord">${icons.discord}<span class="discord-hover">@donfifthy</span></a>
             </div>
             <div class="sidebar-divider"></div>
             
