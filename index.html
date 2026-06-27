@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sevy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="load-glitch"></div>
+    <div id="langSelector" class="lang-selector-overlay">
+        <div class="lang-selector-content">
+            <div class="lang-title">Choose Language<br><span class="lang-title-kr">언어 선택</span></div>
+            <div class="lang-btn-group">
+                <button class="lang-btn" onclick="selectLang('en')">English</button>
+                <button class="lang-btn" onclick="selectLang('kr')">한국어</button>
+            </div>
+        </div>
+    </div>
+    <canvas id="particles"></canvas>
+    
+    <div id="app"></div>
+
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay"></div>
+        <div class="search-container">
+            <div class="search-header-input">
+                <svg class="search-modal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" id="searchInput" placeholder="Search configs, gear..." autocomplete="off" spellcheck="false" />
+                <button class="search-clear-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="search-results-wrap" id="searchResults"></div>
+            <div class="search-footer">
+                <span class="search-hints">
+                    <span><span class="search-esc-hint">ESC</span> to close</span>
+                    <span><span class="search-esc-hint">CTRL K</span> to open</span>
+                </span>
+                <span id="searchCount">0</span> results
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
