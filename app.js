@@ -226,7 +226,7 @@ const CONFIGS = [
           { key: "FPS", value: "Unlimited" },
           { key: "Menu Cursor Size", value: "0.79x" },
           { key: "Scroll Speed", value: "441ms (Speed 26.0)" },
-          { key: "Keys", value: "z x , ." }
+          { key: "Keys", value: "a s ; '" }
         ]
       }
     ]
@@ -485,32 +485,27 @@ function renderProjectsRoot() {
 const PORTFOLIO_VIDEOS = [
   {
     id: "CqkHXAIERns",
-    titleEn: "Rivals Ranked But I Can ONLY Use SECONDARIES",
-    titleKr: "라이벌즈 랭크전 보조무기만 사용하기",
+    title: "Rivals Ranked But I Can ONLY Use SECONDARIES",
     game: "Roblox Rivals"
   },
   {
     id: "nTqi16nMSbM",
-    titleEn: "Minecraft PvP Edit / Montage",
-    titleKr: "마인크래프트 PvP 에딧 / 몽타주",
+    title: "These Roblox Games Are Getting Sued",
     game: "Minecraft"
   },
   {
     id: "JhSsTG8YqDs",
-    titleEn: "Minecraft 10-player Battle Royale Survival",
-    titleKr: "마인크래프트 10인 배틀로얄 서바이벌",
+    title: "마인크래프트 10인 배틀로얄 서바이벌에서 생존하기",
     game: "Minecraft"
   },
   {
     id: "rj388lG0Z4c",
-    titleEn: "[Viewer PVP] Beat 100 Viewers with 'OP Enchant'",
-    titleKr: "[시참PVP] 미친 능력이 생기는 'OP 인챈트'로 100명 이기기",
+    title: "[시참PVP] 미친 능력이 추가된 \"OP 인첸트\"로 시청자 100명 상대로 승리하기",
     game: "Minecraft"
   },
   {
     id: "tLt34Tk8R9c",
-    titleEn: "[Battle Royale] Minecraft Battle Royale Survival",
-    titleKr: "[배틀로얄] 마인크래프트 배틀로얄 서바이벌",
+    title: "[배틀로얄] 마인크래프트 *배틀로얄 서바이벌*에서 살아남기",
     game: "Minecraft"
   }
 ];
@@ -518,44 +513,37 @@ const PORTFOLIO_VIDEOS = [
 const PORTFOLIO_SHORTS = [
   {
     id: "NKutiSBkVDE",
-    titleEn: "Minecraft Block Placement Trick",
-    titleKr: "마인크래프트 블록 설치 기술",
+    title: "마크 1위 RPG 서버",
     game: "Minecraft"
   },
   {
     id: "KUq_8pNqel0",
-    titleEn: "Minecraft Clutch Practice",
-    titleKr: "마인크래프트 클러치 연습",
+    title: "🟩 초록색 마인크래프트 유튜버..?",
     game: "Minecraft"
   },
   {
     id: "S0pBQDpv_VM",
-    titleEn: "Finishing the Run / Speedrun",
-    titleKr: "스피드런 마무리 클립",
+    title: "Finding fun games to play when you're bored! (Day 2) #games  #roblox  #gaming #shorts",
     game: "Minecraft"
   },
   {
     id: "8q41MP2SG4o",
-    titleEn: "Fast Bridge Techniques",
-    titleKr: "빠른 다리 건설 기술",
+    title: "Finding fun games to play when you're bored! (Day 1) #games  #roblox",
     game: "Minecraft"
   },
   {
     id: "A0lxcSfXPFI",
-    titleEn: "Minecraft Portal Traps",
-    titleKr: "마인크래프트 포탈 트랩",
+    title: "포코피아 꾸미기 고인물만 안다는 '이 블록'의 정체 🤫",
     game: "Minecraft"
   },
   {
     id: "sfQ8o0cYlfk",
-    titleEn: "What Rank Can You Place?",
-    titleKr: "배치고사 몇 등까지 가능할까?",
+    title: "What Rank Can You Place🫡 #roblox #robloxrivals #rivals",
     game: "Roblox Rivals"
   },
   {
     id: "EQvygdXnf3o",
-    titleEn: "Can You Win Ranked With ONLY Secondaries?",
-    titleKr: "랭크전 보조무기만으로 승리 가능할까?",
+    title: "Can u Win In Ranked With ONLY Secondaries  #roblox #robloxrivals #rivals",
     game: "Roblox Rivals"
   }
 ];
@@ -570,8 +558,8 @@ function renderPortfolio() {
       </div>
       <div class="portfolio-card-info">
         <div class="portfolio-card-tag">${v.game}</div>
-        <div class="portfolio-card-title" title="${isKr ? v.titleKr : v.titleEn}">
-          ${isKr ? v.titleKr : v.titleEn}
+        <div class="portfolio-card-title" title="${v.title}">
+          ${v.title}
         </div>
       </div>
     </div>
@@ -584,8 +572,8 @@ function renderPortfolio() {
       </div>
       <div class="portfolio-card-info">
         <div class="portfolio-card-tag">${s.game}</div>
-        <div class="portfolio-card-title" title="${isKr ? s.titleKr : s.titleEn}">
-          ${isKr ? s.titleKr : s.titleEn}
+        <div class="portfolio-card-title" title="${s.title}">
+          ${s.title}
         </div>
       </div>
     </div>
@@ -738,7 +726,7 @@ function initApp() {
     content.className = 'main-content'; 
     void content.offsetWidth; 
     
-    content.innerHTML = ROUTES[page]() + '<div class="main-footer">© 2026 collin</div>';
+    content.innerHTML = ROUTES[page]() + '<div class="main-footer">© Jay</div>';
     content.classList.add('glitch-in');
     
     content.scrollTo({ top: 0, behavior: 'smooth' });
@@ -833,7 +821,7 @@ function initSettings() {
     if (btn && btn.dataset.config !== undefined) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderConfigDetail(btn.dataset.config) + '<div class="main-footer">© 2026 collin</div>';
+      content.innerHTML = renderConfigDetail(btn.dataset.config) + '<div class="main-footer">© Jay</div>';
       content.classList.add('slide-in-right');
       content.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -841,7 +829,7 @@ function initSettings() {
     if (e.target.closest('#configBack')) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderSettings() + '<div class="main-footer">© 2026 collin</div>';
+      content.innerHTML = renderSettings() + '<div class="main-footer">© Jay</div>';
       content.classList.add('slide-in-left');
       content.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -855,8 +843,8 @@ function initProjects() {
     if (btn && btn.dataset.proj) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      if (btn.dataset.proj === 'portfolio') content.innerHTML = renderPortfolio() + '<div class="main-footer">© 2026 collin</div>';
-      if (btn.dataset.proj === 'achievements') content.innerHTML = renderAchievements() + '<div class="main-footer">© 2026 collin</div>';
+      if (btn.dataset.proj === 'portfolio') content.innerHTML = renderPortfolio() + '<div class="main-footer">© Jay</div>';
+      if (btn.dataset.proj === 'achievements') content.innerHTML = renderAchievements() + '<div class="main-footer">© Jay</div>';
       content.classList.add('slide-in-right');
       content.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -872,14 +860,14 @@ function initProjects() {
       const shortsSec = document.getElementById('shorts-section');
       
       if (filter === 'all') {
-        if (widescreenSec) widescreenSec.style.display = 'flex';
-        if (shortsSec) shortsSec.style.display = 'flex';
+        if (widescreenSec) widescreenSec.classList.remove('hidden-section');
+        if (shortsSec) shortsSec.classList.remove('hidden-section');
       } else if (filter === 'longform') {
-        if (widescreenSec) widescreenSec.style.display = 'flex';
-        if (shortsSec) shortsSec.style.display = 'none';
+        if (widescreenSec) widescreenSec.classList.remove('hidden-section');
+        if (shortsSec) shortsSec.classList.add('hidden-section');
       } else if (filter === 'shorts') {
-        if (widescreenSec) widescreenSec.style.display = 'none';
-        if (shortsSec) shortsSec.style.display = 'flex';
+        if (widescreenSec) widescreenSec.classList.add('hidden-section');
+        if (shortsSec) shortsSec.classList.remove('hidden-section');
       }
       return;
     }
@@ -887,7 +875,7 @@ function initProjects() {
     if (e.target.closest('#projBack')) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderProjectsRoot() + '<div class="main-footer">© 2026 collin</div>';
+      content.innerHTML = renderProjectsRoot() + '<div class="main-footer">© Jay</div>';
       content.classList.add('slide-in-left');
       content.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -941,15 +929,15 @@ searchInput.addEventListener('input', e => {
     }
   });
   PORTFOLIO_VIDEOS.forEach(v => {
-    const title = (lang === 'kr' ? v.titleKr : v.titleEn).toLowerCase();
+    const title = v.title.toLowerCase();
     if (title.includes(q) || v.game.toLowerCase().includes(q)) {
-      rArr.push({ name: lang === 'kr' ? v.titleKr : v.titleEn, tag: t('portfolio') || 'Portfolio', action: "setPage('projects'); setTimeout(() => { const b = document.querySelector('[data-proj=\\'portfolio\\']'); if(b) b.click(); }, 50); document.getElementById('searchModal').classList.remove('open');" });
+      rArr.push({ name: v.title, tag: t('portfolio') || 'Portfolio', action: "setPage('projects'); setTimeout(() => { const b = document.querySelector('[data-proj=\\'portfolio\\']'); if(b) b.click(); }, 50); document.getElementById('searchModal').classList.remove('open');" });
     }
   });
   PORTFOLIO_SHORTS.forEach(s => {
-    const title = (lang === 'kr' ? s.titleKr : s.titleEn).toLowerCase();
+    const title = s.title.toLowerCase();
     if (title.includes(q) || s.game.toLowerCase().includes(q)) {
-      rArr.push({ name: lang === 'kr' ? s.titleKr : s.titleEn, tag: t('portfolio') || 'Portfolio', action: "setPage('projects'); setTimeout(() => { const b = document.querySelector('[data-proj=\\'portfolio\\']'); if(b) b.click(); }, 50); document.getElementById('searchModal').classList.remove('open');" });
+      rArr.push({ name: s.title, tag: t('portfolio') || 'Portfolio', action: "setPage('projects'); setTimeout(() => { const b = document.querySelector('[data-proj=\\'portfolio\\']'); if(b) b.click(); }, 50); document.getElementById('searchModal').classList.remove('open');" });
     }
   });
   
