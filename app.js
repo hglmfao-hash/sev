@@ -75,7 +75,12 @@ const i18n = {
     ram: "RAM",
     storage: "Storage",
     displayName: "Jay",
-    monitorValue: 'freeflow 240hz 24"'
+    monitorValue: 'freeflow 240hz 24"',
+    portfolioAll: "All",
+    portfolioLongForm: "Long Form",
+    portfolioShorts: "Shorts",
+    portfolioLongFormEdits: "Long Form Edits",
+    portfolioShortsEdits: "Shorts"
   },
   kr: {
     pinMsg: "편집 커미션을 많이 받고 있어서 평소만큼 활동하지 않을 수 있습니다.",
@@ -127,7 +132,12 @@ const i18n = {
     ram: "램",
     storage: "SSD",
     displayName: "현우",
-    monitorValue: "프리플로우 240hz 24인치"
+    monitorValue: "프리플로우 240hz 24인치",
+    portfolioAll: "전체",
+    portfolioLongForm: "롱폼",
+    portfolioShorts: "숏폼",
+    portfolioLongFormEdits: "롱폼 편집",
+    portfolioShortsEdits: "숏폼 편집"
   }
 };
 
@@ -472,31 +482,144 @@ function renderProjectsRoot() {
   `;
 }
 
+const PORTFOLIO_VIDEOS = [
+  {
+    id: "CqkHXAIERns",
+    titleEn: "Rivals Ranked But I Can ONLY Use SECONDARIES",
+    titleKr: "라이벌즈 랭크전 보조무기만 사용하기",
+    game: "Roblox Rivals"
+  },
+  {
+    id: "nTqi16nMSbM",
+    titleEn: "Minecraft PvP Edit / Montage",
+    titleKr: "마인크래프트 PvP 에딧 / 몽타주",
+    game: "Minecraft"
+  },
+  {
+    id: "JhSsTG8YqDs",
+    titleEn: "Minecraft 10-player Battle Royale Survival",
+    titleKr: "마인크래프트 10인 배틀로얄 서바이벌",
+    game: "Minecraft"
+  },
+  {
+    id: "rj388lG0Z4c",
+    titleEn: "[Viewer PVP] Beat 100 Viewers with 'OP Enchant'",
+    titleKr: "[시참PVP] 미친 능력이 생기는 'OP 인챈트'로 100명 이기기",
+    game: "Minecraft"
+  },
+  {
+    id: "tLt34Tk8R9c",
+    titleEn: "[Battle Royale] Minecraft Battle Royale Survival",
+    titleKr: "[배틀로얄] 마인크래프트 배틀로얄 서바이벌",
+    game: "Minecraft"
+  }
+];
+
+const PORTFOLIO_SHORTS = [
+  {
+    id: "NKutiSBkVDE",
+    titleEn: "Minecraft Block Placement Trick",
+    titleKr: "마인크래프트 블록 설치 기술",
+    game: "Minecraft"
+  },
+  {
+    id: "KUq_8pNqel0",
+    titleEn: "Minecraft Clutch Practice",
+    titleKr: "마인크래프트 클러치 연습",
+    game: "Minecraft"
+  },
+  {
+    id: "S0pBQDpv_VM",
+    titleEn: "Finishing the Run / Speedrun",
+    titleKr: "스피드런 마무리 클립",
+    game: "Minecraft"
+  },
+  {
+    id: "8q41MP2SG4o",
+    titleEn: "Fast Bridge Techniques",
+    titleKr: "빠른 다리 건설 기술",
+    game: "Minecraft"
+  },
+  {
+    id: "A0lxcSfXPFI",
+    titleEn: "Minecraft Portal Traps",
+    titleKr: "마인크래프트 포탈 트랩",
+    game: "Minecraft"
+  },
+  {
+    id: "sfQ8o0cYlfk",
+    titleEn: "What Rank Can You Place?",
+    titleKr: "배치고사 몇 등까지 가능할까?",
+    game: "Roblox Rivals"
+  },
+  {
+    id: "EQvygdXnf3o",
+    titleEn: "Can You Win Ranked With ONLY Secondaries?",
+    titleKr: "랭크전 보조무기만으로 승리 가능할까?",
+    game: "Roblox Rivals"
+  }
+];
+
 function renderPortfolio() {
+  const isKr = lang === 'kr';
+  
+  const widescreenCards = PORTFOLIO_VIDEOS.map(v => `
+    <div class="portfolio-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen></iframe>
+      </div>
+      <div class="portfolio-card-info">
+        <div class="portfolio-card-tag">${v.game}</div>
+        <div class="portfolio-card-title" title="${isKr ? v.titleKr : v.titleEn}">
+          ${isKr ? v.titleKr : v.titleEn}
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  const shortsCards = PORTFOLIO_SHORTS.map(s => `
+    <div class="portfolio-card">
+      <div class="video-wrapper short">
+        <iframe src="https://www.youtube.com/embed/${s.id}" allowfullscreen></iframe>
+      </div>
+      <div class="portfolio-card-info">
+        <div class="portfolio-card-tag">${s.game}</div>
+        <div class="portfolio-card-title" title="${isKr ? s.titleKr : s.titleEn}">
+          ${isKr ? s.titleKr : s.titleEn}
+        </div>
+      </div>
+    </div>
+  `).join('');
+
   return `
     <button class="config-back" id="projBack">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
       <span>${t('back')}</span>
     </button>
+    
     <section class="content-section">
       <div class="section-header">
         <span class="section-label">${t('portfolio')}</span>
         <span class="section-line"></span>
       </div>
-      <div class="section-card">
+      
+      <div class="portfolio-tabs">
+        <button class="portfolio-tab active" data-filter="all">${t('portfolioAll')}</button>
+        <button class="portfolio-tab" data-filter="longform">${t('portfolioLongForm')}</button>
+        <button class="portfolio-tab" data-filter="shorts">${t('portfolioShorts')}</button>
+      </div>
+
+      <div class="portfolio-section" id="widescreen-section">
+        <div class="portfolio-section-title">${t('portfolioLongFormEdits')}</div>
         <div class="videos-grid">
-          <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/CqkHXAIERns" allowfullscreen></iframe></div>
-          <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nTqi16nMSbM" allowfullscreen></iframe></div>
-          <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/JhSsTG8YqDs" allowfullscreen></iframe></div>
-          <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/rj388lG0Z4c" allowfullscreen></iframe></div>
-          <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/tLt34Tk8R9c" allowfullscreen></iframe></div>
+          ${widescreenCards}
         </div>
-        <div class="videos-grid" style="margin-top: 1rem; grid-template-columns: repeat(5, 1fr);">
-            <div class="video-wrapper short"><iframe src="https://www.youtube.com/embed/NKutiSBkVDE" allowfullscreen></iframe></div>
-            <div class="video-wrapper short"><iframe src="https://www.youtube.com/embed/KUq_8pNqel0" allowfullscreen></iframe></div>
-            <div class="video-wrapper short"><iframe src="https://www.youtube.com/embed/S0pBQDpv_VM" allowfullscreen></iframe></div>
-            <div class="video-wrapper short"><iframe src="https://www.youtube.com/embed/8q41MP2SG4o" allowfullscreen></iframe></div>
-            <div class="video-wrapper short"><iframe src="https://www.youtube.com/embed/A0lxcSfXPFI" allowfullscreen></iframe></div>
+      </div>
+
+      <div class="portfolio-section" id="shorts-section">
+        <div class="portfolio-section-title">${t('portfolioShortsEdits')}</div>
+        <div class="shorts-grid">
+          ${shortsCards}
         </div>
       </div>
     </section>
@@ -738,6 +861,29 @@ function initProjects() {
       content.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
+    
+    const tabBtn = e.target.closest('.portfolio-tab');
+    if (tabBtn) {
+      document.querySelectorAll('.portfolio-tab').forEach(t => t.classList.remove('active'));
+      tabBtn.classList.add('active');
+      
+      const filter = tabBtn.dataset.filter;
+      const widescreenSec = document.getElementById('widescreen-section');
+      const shortsSec = document.getElementById('shorts-section');
+      
+      if (filter === 'all') {
+        if (widescreenSec) widescreenSec.style.display = 'flex';
+        if (shortsSec) shortsSec.style.display = 'flex';
+      } else if (filter === 'longform') {
+        if (widescreenSec) widescreenSec.style.display = 'flex';
+        if (shortsSec) shortsSec.style.display = 'none';
+      } else if (filter === 'shorts') {
+        if (widescreenSec) widescreenSec.style.display = 'none';
+        if (shortsSec) shortsSec.style.display = 'flex';
+      }
+      return;
+    }
+
     if (e.target.closest('#projBack')) {
       content.className = 'main-content'; 
       void content.offsetWidth;
@@ -792,6 +938,18 @@ searchInput.addEventListener('input', e => {
     const cDesc = t(c.descKey).toLowerCase();
     if (cName.includes(q) || cDesc.includes(q)) {
       rArr.push({ name: t(c.nameKey), tag: t('configs'), action: "setPage('settings'); setTimeout(() => { const b = document.querySelector('[data-config=\\'" + i + "\\']'); if(b) b.click(); }, 50); document.getElementById('searchModal').classList.remove('open');" });
+    }
+  });
+  PORTFOLIO_VIDEOS.forEach(v => {
+    const title = (lang === 'kr' ? v.titleKr : v.titleEn).toLowerCase();
+    if (title.includes(q) || v.game.toLowerCase().includes(q)) {
+      rArr.push({ name: lang === 'kr' ? v.titleKr : v.titleEn, tag: t('portfolio') || 'Portfolio', action: "setPage('projects'); setTimeout(() => { const b = document.querySelector('[data-proj=\\'portfolio\\']'); if(b) b.click(); }, 50); document.getElementById('searchModal').classList.remove('open');" });
+    }
+  });
+  PORTFOLIO_SHORTS.forEach(s => {
+    const title = (lang === 'kr' ? s.titleKr : s.titleEn).toLowerCase();
+    if (title.includes(q) || s.game.toLowerCase().includes(q)) {
+      rArr.push({ name: lang === 'kr' ? s.titleKr : s.titleEn, tag: t('portfolio') || 'Portfolio', action: "setPage('projects'); setTimeout(() => { const b = document.querySelector('[data-proj=\\'portfolio\\']'); if(b) b.click(); }, 50); document.getElementById('searchModal').classList.remove('open');" });
     }
   });
   
