@@ -491,7 +491,7 @@ const PORTFOLIO_VIDEOS = [
   {
     id: "nTqi16nMSbM",
     title: "These Roblox Games Are Getting Sued",
-    game: "Minecraft"
+    game: "Roblox, Minecraft, CS2 etc"
   },
   {
     id: "JhSsTG8YqDs",
@@ -645,6 +645,7 @@ let webglInitialized = false;
 
 window.toggleLang = function() {
   lang = lang === 'en' ? 'kr' : 'en';
+  document.title = lang === 'kr' ? '현우' : 'Jay';
   initApp();
 };
 
@@ -1227,6 +1228,7 @@ function initWebGL() {
 
 window.selectLang = function(selectedLang) {
   lang = selectedLang;
+  document.title = lang === 'kr' ? '현우' : 'Jay';
   const overlay = document.getElementById('langSelector');
   if (overlay) {
     overlay.style.opacity = '0';
