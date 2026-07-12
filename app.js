@@ -153,6 +153,8 @@ const GEAR_DATA = [
   { category: "keyboards", name: "AULA Hero 68HE", sub: "AULA" },
   { category: "keyboards", name: "MAD 60HE", sub: "Madlions" },
   { category: "keyboards", name: "VGN FLASH 68", sub: "VGN" },
+  { category: "keyboards", name: "TFG Magnetox 2XL", sub: "Monstergear" },
+  { category: "keyboards", name: "MX 2.0S NBL", sub: "Cherry" },
   { category: "tablets", name: "CTL-472", sub: "Wacom" },
   { category: "mousefeet", name: "Universal U9", sub: "X-Raypad" },
   { category: "mousefeet", name: "Ultraglide Purple", sub: "Meow gaming gear" },
@@ -162,7 +164,7 @@ const GEAR_DATA = [
 
 const HOME_GEAR = [
   { label: "mice", value: "OP1w 4K", icon: "mouse" },
-  { label: "keyboards", value: "VGN FLASH 68", icon: "keyboard" },
+  { label: "keyboards", value: "TFG Magnetox 2XL", icon: "keyboard" },
   { label: "mousepads", value: "Artisan FX Zero", icon: "pad" },
   { label: "mousefeet", value: "Universal U9", icon: "mouse" },
   { label: "microphones", value: "AM8T", icon: "mic" },
