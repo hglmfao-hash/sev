@@ -26,7 +26,7 @@ let lang = 'en';
 
 const i18n = {
   en: {
-    pinMsg: "taking editing coms more, so might not be active as usual.",
+    pinMsg: "insta got locked so i can only dm thru discord",
     about: "About",
     bio: "i edit videos for a living",
     pcSpecs: "PC Specs",
@@ -83,7 +83,7 @@ const i18n = {
     portfolioShortsEdits: "Shorts"
   },
   kr: {
-    pinMsg: "편집 커미션을 많이 받고 있어서 평소만큼 활동하지 않을 수 있습니다.",
+    pinMsg: 인스타그램 계정 잠겨서 디엠은 디스코드로",
     about: "소개",
     bio: "12년생 편집자",
     pcSpecs: "컴 사양",
