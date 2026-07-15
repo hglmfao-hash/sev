@@ -83,7 +83,7 @@ const i18n = {
     portfolioShortsEdits: "Shorts"
   },
   kr: {
-    pinMsg: 인스타그램 계정 잠겨서 디엠은 디스코드로",
+    pinMsg: "인스타그램 계정 잠겨서 디엠은 디스코드로",
     about: "소개",
     bio: "12년생 편집자",
     pcSpecs: "컴 사양",
