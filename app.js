@@ -147,7 +147,7 @@ const i18n = {
     ram: "램",
     storage: "SSD",
     displayName: "현우",
-    monitorValue: "(클릭해서 보기)",
+    monitorValue: "(클릭하여 자세히 보기)",
     portfolioAll: "전체",
     portfolioLongForm: "롱폼",
     portfolioShorts: "숏폼",
