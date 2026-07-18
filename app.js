@@ -65,7 +65,7 @@ const i18n = {
     confArsenal: "Arsenal Config",
     confArsenalDesc: "Current Roblox Arsenal settings (Always up to date)",
     confKeyboard: "Keyboard Settings",
-    confKeyboardDesc: "Magnetox keyboard actuation and rapid trigger settings",
+    confKeyboardDesc: "keyboard sets",
     vsrg: "VSRG",
     fps: "FPS",
     dailyUse: "Editing & Daily Use",
@@ -211,7 +211,7 @@ const CONFIGS = [
       {
         label: "vsrg", rows: [
           { key: "actuationPoint", value: "0.4 mm" },
-          { key: "rapidTrigger", value: "0.3 mm" }
+          { key: "rapidTrigger", value: "0.15 mm" }
         ]
       },
       {
