@@ -712,6 +712,7 @@ function renderAchievements() {
       age: "Current",
       achievements: [
         "5k hours on all cs versions",
+        "4+ years of experience on video editing",
         "11x false bans"
       ]
     }
