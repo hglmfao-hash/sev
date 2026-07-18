@@ -36,8 +36,8 @@ const i18n = {
     projects: "Projects",
     portfolio: "Portfolio",
     portfolioDesc: "editing portfolio (only some are here)",
-    achievements: "Achievements",
-    achievementsDesc: "achievements over the years ive been alive i guess",
+    achievements: "Milestones",
+    achievementsDesc: "personal milestones and timeline records",
     comingSoon: "coming soon...",
     back: "Back",
     navHome: "Home",
@@ -64,6 +64,13 @@ const i18n = {
     confKovaaksDesc: "Current KovaaK's settings (Always up to date)",
     confArsenal: "Arsenal Config",
     confArsenalDesc: "Current Roblox Arsenal settings (Always up to date)",
+    confKeyboard: "Keyboard Settings",
+    confKeyboardDesc: "Magnetox keyboard actuation and rapid trigger settings",
+    vsrg: "VSRG",
+    fps: "FPS",
+    dailyUse: "Editing & Daily Use",
+    actuationPoint: "Actuation Point",
+    rapidTrigger: "Rapid Trigger",
     roblox: "Roblox",
     overwatch: "Overwatch",
     cs2: "CS2",
@@ -74,8 +81,8 @@ const i18n = {
     motherboard: "Motherboard",
     ram: "RAM",
     storage: "Storage",
-    displayName: "Jay",
-    monitorValue: 'freeflow 240hz 24"',
+    displayName: "Rowan",
+    monitorValue: '(click for more info)',
     portfolioAll: "All",
     portfolioLongForm: "Long Form",
     portfolioShorts: "Shorts",
@@ -83,7 +90,7 @@ const i18n = {
     portfolioShortsEdits: "Shorts"
   },
   kr: {
-    pinMsg: "인스타그램 계정 잠겨서 디엠은 디스코드로",
+    pinMsg: "인스타 계정 잠겨서 디엠은 디스코드로",
     about: "소개",
     bio: "12년생 편집자",
     pcSpecs: "컴 사양",
@@ -93,8 +100,8 @@ const i18n = {
     projects: "프로젝트",
     portfolio: "포트폴리오",
     portfolioDesc: "영상편집 포트폴리오",
-    achievements: "업적",
-    achievementsDesc: "업적 (?)",
+    achievements: "기록",
+    achievementsDesc: "게이밍 및 개인 기록 타임라인",
     comingSoon: "곧 공개 예정...",
     back: "뒤로가기",
     navHome: "홈",
@@ -121,6 +128,14 @@ const i18n = {
     confKovaaksDesc: "현재 코박스 설정 (항상 최신)",
     confArsenal: "아스널 설정",
     confArsenalDesc: "현재 로블록스 아스널 설정 (항상 최신)",
+    confKeyboard: "키보드 설정",
+    confKeyboardDesc: "키보드 rt 설정",
+    vsrg: "리겜",
+    fps: "FPS",
+    dailyUse: "일상생활",
+    actuationPoint: "입력 지점",
+    rapidTrigger: "래피드 트리거",
+    updating: "업데이트중..",
     roblox: "로블록스",
     overwatch: "오버워치",
     cs2: "카스2",
@@ -132,7 +147,7 @@ const i18n = {
     ram: "램",
     storage: "SSD",
     displayName: "현우",
-    monitorValue: "프리플로우 240hz 24인치",
+    monitorValue: "(클릭해서 보기)",
     portfolioAll: "전체",
     portfolioLongForm: "롱폼",
     portfolioShorts: "숏폼",
@@ -153,13 +168,14 @@ const GEAR_DATA = [
   { category: "keyboards", name: "AULA Hero 68HE", sub: "AULA" },
   { category: "keyboards", name: "MAD 60HE", sub: "Madlions" },
   { category: "keyboards", name: "VGN FLASH 68", sub: "VGN" },
-  { category: "keyboards", name: "TFG Magnetox 2XL", sub: "Monstergear" },
+  { category: "keyboards", name: "TFG Magnetox 2XL", sub: "Hansung" },
   { category: "keyboards", name: "MX 2.0S NBL", sub: "Cherry" },
   { category: "tablets", name: "CTL-472", sub: "Wacom" },
   { category: "mousefeet", name: "Universal U9", sub: "X-Raypad" },
   { category: "mousefeet", name: "Ultraglide Purple", sub: "Meow gaming gear" },
   { category: "microphones", name: "AM8T", sub: "fifine" },
-  { category: "monitors", name: "Freeflow 240hz", sub: "freeflow" }
+  { category: "monitors", name: "Freeflow 240hz 24\"", sub: "freeflow" },
+  { category: "monitors", name: "UltraGear 144hz 27\"", sub: "LG" }
 ];
 
 const HOME_GEAR = [
@@ -178,13 +194,36 @@ const CONFIGS = [
     sections: [
       {
         label: "settingsLabel", rows: [
-          { key: "cm/360", value: "40cm" },
-          { key: "roblox", value: "0.0762" },
-          { key: "overwatch", value: "4.32955 / 4.33" },
-          { key: "cs2", value: "1.3" },
+          { key: "cm/360", value: "30-35cm" },
+          { key: "roblox", value: "0.9" },
+          { key: "overwatch", value: "4.7 - 6" },
+          { key: "cs2", value: "1.5" },
           { key: "cs16", value: "1.1 - 1.3" },
           { key: "DPI", value: "800" },
-          { key: "Hz", value: "2000" }
+          { key: "Hz", value: "1000" }
+        ]
+      }
+    ]
+  },
+  {
+    nameKey: "confKeyboard", descKey: "confKeyboardDesc",
+    sections: [
+      {
+        label: "vsrg", rows: [
+          { key: "actuationPoint", value: "0.4 mm" },
+          { key: "rapidTrigger", value: "0.3 mm" }
+        ]
+      },
+      {
+        label: "fps", rows: [
+          { key: "actuationPoint", value: "0.9 mm" },
+          { key: "rapidTrigger", value: "0.2 mm" }
+        ]
+      },
+      {
+        label: "dailyUse", rows: [
+          { key: "actuationPoint", value: "2.0 mm" },
+          { key: "rapidTrigger", value: "0.7 mm" }
         ]
       }
     ]
@@ -227,7 +266,7 @@ const CONFIGS = [
           { key: "Skin", value: "Rowan (4k Finn orbs, 5-7k Plutes)" },
           { key: "FPS", value: "Unlimited" },
           { key: "Menu Cursor Size", value: "0.79x" },
-          { key: "Scroll Speed", value: "441ms (Speed 26.0)" },
+          { key: "Scroll Speed", value: "433ms (Speed 26.5)" },
           { key: "Keys", value: "a s ; '" }
         ]
       }
@@ -295,15 +334,15 @@ const CONFIGS = [
     nameKey: "confArsenal", descKey: "confArsenalDesc",
     sections: [
       {
-        label: "Display - General & Outlines", rows: [
-          { key: "Enemy Outlines", value: "ON (Color: Black)" },
+        label: "Display", rows: [
+          { key: "Enemy Outlines", value: "ON (Color: White)" },
           { key: "No Textures", value: "ON" },
           { key: "Legacy Viewmodel Offset", value: "ON" },
           { key: "Minimized Viewmodels", value: "ON" },
           { key: "Hide Career Stats", value: "ON" },
           { key: "Hide Viewmodels", value: "OFF" },
           { key: "FOV", value: "90" },
-          { key: "Crosshair", value: "Custom Red (R:Max, G:Min, B:Min)" },
+          { key: "Crosshair", value: "Black" },
           { key: "Disable Weapon Sway", value: "OFF" },
           { key: "Chat", value: "ON" },
           { key: "Performance Stats (Basic / Adv)", value: "OFF / OFF" },
@@ -321,11 +360,11 @@ const CONFIGS = [
         ]
       },
       {
-        label: "Audio - General", rows: [
+        label: "Audio", rows: [
           { key: "Announcers / Megaphones", value: "OFF / OFF" },
           { key: "Character Vocal Damage Noises", value: "OFF" },
           { key: "Menu Music", value: "OFF" },
-          { key: "Mute Copyrighted Music", value: "OFF" }
+          { key: "Mute Copyrighted Music", value: "ON" }
         ]
       }
     ]
@@ -335,7 +374,7 @@ const CONFIGS = [
 // --- VIEWS GENERATION ---
 function renderHome() {
   const gearHTML = HOME_GEAR.map(g => `
-    <div class="gear-item">
+    <div class="gear-item${g.label === 'monitors' ? ' clickable-gear-item' : ''}" ${g.label === 'monitors' ? 'onclick="clickMonitorHome()"' : ''}>
       <div class="gear-icon">${icons[g.icon]}</div>
       <div>
         <div class="gear-label">${t(g.label.toLowerCase()) || g.label}</div>
@@ -617,6 +656,83 @@ function renderPortfolio() {
 }
 
 function renderAchievements() {
+  if (lang === 'kr') {
+    return `
+      <button class="config-back" id="projBack">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        <span>${t('back')}</span>
+      </button>
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-label">${t('achievements')}</span>
+          <span class="section-line"></span>
+        </div>
+        <div class="updating-container">
+          <div class="updating-glow-dot"></div>
+          <div class="updating-text">${t('updating') || '업데이트중..'}</div>
+          <div class="updating-sub">나중에 다시 확인해 주세요.</div>
+        </div>
+      </section>
+    `;
+  }
+
+  const groups = [
+    {
+      age: "9 Years Old",
+      achievements: [
+        "ratted",
+        "doxxed"
+      ]
+    },
+    {
+      age: "10 Years Old",
+      achievements: [
+        "ratted",
+        "doxxed",
+        "R7 low",
+        "csgo global elite"
+      ]
+    },
+    {
+      age: "11 Years Old",
+      achievements: [
+        "ratted",
+        "doxxed"
+      ]
+    },
+    {
+      age: "13 Years Old",
+      achievements: [
+        "premier 29k",
+        "vt master comp",
+        "2nd ever nemesis in the world"
+      ]
+    },
+    {
+      age: "Current",
+      achievements: [
+        "5k hours on all cs versions",
+        "11x false bans"
+      ]
+    }
+  ];
+
+  const timelineHTML = groups.map(group => `
+    <div class="timeline-group">
+      <div class="timeline-date-header">
+        <span>${group.age}</span>
+        <span class="timeline-header-line"></span>
+      </div>
+      <div class="timeline-items-wrap">
+        ${group.achievements.map(ach => `
+          <div class="timeline-item">
+            <div class="timeline-title">${ach}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
   return `
     <button class="config-back" id="projBack">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
@@ -627,8 +743,8 @@ function renderAchievements() {
         <span class="section-label">${t('achievements')}</span>
         <span class="section-line"></span>
       </div>
-      <div class="section-card" style="text-align:center; padding: 3rem; color: var(--text-muted);">
-        ${t('comingSoon')}
+      <div class="timeline-container">
+        ${timelineHTML}
       </div>
     </section>
   `;
@@ -647,7 +763,7 @@ let webglInitialized = false;
 
 window.toggleLang = function() {
   lang = lang === 'en' ? 'kr' : 'en';
-  document.title = lang === 'kr' ? '현우' : 'Jay';
+  document.title = lang === 'kr' ? '현우' : 'Rowan';
   initApp();
 };
 
@@ -729,7 +845,7 @@ function initApp() {
     content.className = 'main-content'; 
     void content.offsetWidth; 
     
-    content.innerHTML = ROUTES[page]() + '<div class="main-footer">© Jay</div>';
+    content.innerHTML = ROUTES[page]() + '<div class="main-footer">© Rowan</div>';
     content.classList.add('glitch-in');
     
     content.scrollTo({ top: 0, behavior: 'smooth' });
@@ -824,7 +940,7 @@ function initSettings() {
     if (btn && btn.dataset.config !== undefined) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderConfigDetail(btn.dataset.config) + '<div class="main-footer">© Jay</div>';
+      content.innerHTML = renderConfigDetail(btn.dataset.config) + '<div class="main-footer">© Rowan</div>';
       content.classList.add('slide-in-right');
       content.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -832,7 +948,7 @@ function initSettings() {
     if (e.target.closest('#configBack')) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderSettings() + '<div class="main-footer">© Jay</div>';
+      content.innerHTML = renderSettings() + '<div class="main-footer">© Rowan</div>';
       content.classList.add('slide-in-left');
       content.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -846,8 +962,8 @@ function initProjects() {
     if (btn && btn.dataset.proj) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      if (btn.dataset.proj === 'portfolio') content.innerHTML = renderPortfolio() + '<div class="main-footer">© Jay</div>';
-      if (btn.dataset.proj === 'achievements') content.innerHTML = renderAchievements() + '<div class="main-footer">© Jay</div>';
+      if (btn.dataset.proj === 'portfolio') content.innerHTML = renderPortfolio() + '<div class="main-footer">© Rowan</div>';
+      if (btn.dataset.proj === 'achievements') content.innerHTML = renderAchievements() + '<div class="main-footer">© Rowan</div>';
       content.classList.add('slide-in-right');
       content.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -878,7 +994,7 @@ function initProjects() {
     if (e.target.closest('#projBack')) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderProjectsRoot() + '<div class="main-footer">© Jay</div>';
+      content.innerHTML = renderProjectsRoot() + '<div class="main-footer">© Rowan</div>';
       content.classList.add('slide-in-left');
       content.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1230,7 +1346,7 @@ function initWebGL() {
 
 window.selectLang = function(selectedLang) {
   lang = selectedLang;
-  document.title = lang === 'kr' ? '현우' : 'Jay';
+  document.title = lang === 'kr' ? '현우' : 'Rowan';
   const overlay = document.getElementById('langSelector');
   if (overlay) {
     overlay.style.opacity = '0';
@@ -1242,6 +1358,42 @@ window.selectLang = function(selectedLang) {
   } else {
     initApp();
   }
+};
+
+window.clickMonitorHome = function() {
+  setPage('setup');
+  setTimeout(() => {
+    const monitorFilterBtn = document.querySelector('.gear-filter[data-filter="monitors"]');
+    if (monitorFilterBtn) {
+      monitorFilterBtn.click();
+    }
+    
+    setTimeout(() => {
+      const target = document.getElementById('gearCatalogue');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        const cards = target.querySelectorAll('.gear-card');
+        cards.forEach(card => {
+          card.classList.add('highlight-pulse');
+        });
+        
+        const removeHighlight = () => {
+          cards.forEach(card => {
+            card.classList.remove('highlight-pulse');
+          });
+          window.removeEventListener('click', removeHighlight);
+          window.removeEventListener('keydown', removeHighlight);
+        };
+        
+        setTimeout(removeHighlight, 3500);
+        setTimeout(() => {
+          window.addEventListener('click', removeHighlight);
+          window.addEventListener('keydown', removeHighlight);
+        }, 100);
+      }
+    }, 100);
+  }, 150);
 };
 
 window.addEventListener('DOMContentLoaded', () => {

@@ -15,7 +15,7 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 ::-webkit-scrollbar {
@@ -372,30 +372,30 @@ canvas#particles {
 }
 
 .glitch-in {
-    animation: contentIn 0.45s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    animation: contentIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .slide-in-right {
-    animation: slideRight 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    animation: slideRight 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .slide-in-left {
-    animation: slideLeft 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    animation: slideLeft 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes contentIn {
-    0% { opacity: 0; transform: translateY(8px) scale(0.98); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+    0% { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 @keyframes slideRight {
-    0% { opacity: 0; transform: translateX(20px); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% { opacity: 0; transform: translateX(25px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateX(0); filter: blur(0); }
 }
 
 @keyframes slideLeft {
-    0% { opacity: 0; transform: translateX(-20px); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% { opacity: 0; transform: translateX(-25px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateX(0); filter: blur(0); }
 }
 
 .pinned-msg {
@@ -1153,4 +1153,193 @@ canvas#particles {
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================================================= */
+/* TIMELINE & STATUS UPDATER (MILESTONES) */
+/* ========================================================================= */
+.timeline-container {
+    position: relative;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+}
+
+.timeline-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    animation: revealCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.timeline-date-header {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    user-select: none;
+}
+
+.timeline-header-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.timeline-items-wrap {
+    border-left: 1px solid var(--border-color);
+    padding-left: 1.5rem;
+    margin-left: 0.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.timeline-item {
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.5rem - 4.5px);
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid var(--bg-color);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item:hover::before {
+    background: #fff;
+    box-shadow: 0 0 10px #fff;
+    transform: scale(1.35);
+}
+
+.timeline-item:hover {
+    transform: translateX(6px);
+}
+
+.timeline-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+/* ========================================================================= */
+/* HIGHLIGHT & INTERACTIVE ANIMS */
+/* ========================================================================= */
+.clickable-gear-item {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clickable-gear-item:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes highlightPulse {
+    0% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+        background: transparent;
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.04);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+        background: transparent;
+    }
+}
+
+.highlight-pulse {
+    animation: highlightPulse 1.8s ease-in-out 2 !important;
+}
+
+/* ========================================================================= */
+/* STAGGERED REVEALS (GOD-HUMAN ENTRY) */
+/* ========================================================================= */
+@keyframes revealCard {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.gear-card, .config-btn, .portfolio-card, .pc-row, .gear-cat-section {
+    animation: revealCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.gear-cat-grid > *:nth-child(1), .config-list > *:nth-child(1), .videos-grid > *:nth-child(1), .shorts-grid > *:nth-child(1), .pc-card > *:nth-child(1), .timeline-container > *:nth-child(1) { animation-delay: 0.03s; }
+.gear-cat-grid > *:nth-child(2), .config-list > *:nth-child(2), .videos-grid > *:nth-child(2), .shorts-grid > *:nth-child(2), .pc-card > *:nth-child(2), .timeline-container > *:nth-child(2) { animation-delay: 0.06s; }
+.gear-cat-grid > *:nth-child(3), .config-list > *:nth-child(3), .videos-grid > *:nth-child(3), .shorts-grid > *:nth-child(3), .pc-card > *:nth-child(3), .timeline-container > *:nth-child(3) { animation-delay: 0.09s; }
+.gear-cat-grid > *:nth-child(4), .config-list > *:nth-child(4), .videos-grid > *:nth-child(4), .shorts-grid > *:nth-child(4), .pc-card > *:nth-child(4), .timeline-container > *:nth-child(4) { animation-delay: 0.12s; }
+.gear-cat-grid > *:nth-child(5), .config-list > *:nth-child(5), .videos-grid > *:nth-child(5), .shorts-grid > *:nth-child(5), .pc-card > *:nth-child(5), .timeline-container > *:nth-child(5) { animation-delay: 0.15s; }
+.gear-cat-grid > *:nth-child(6), .config-list > *:nth-child(6), .videos-grid > *:nth-child(6), .shorts-grid > *:nth-child(6), .pc-card > *:nth-child(6), .timeline-container > *:nth-child(6) { animation-delay: 0.18s; }
+.gear-cat-grid > *:nth-child(7), .config-list > *:nth-child(7), .videos-grid > *:nth-child(7), .shorts-grid > *:nth-child(7), .pc-card > *:nth-child(7), .timeline-container > *:nth-child(7) { animation-delay: 0.21s; }
+.gear-cat-grid > *:nth-child(8), .config-list > *:nth-child(8), .videos-grid > *:nth-child(8), .shorts-grid > *:nth-child(8), .pc-card > *:nth-child(8), .timeline-container > *:nth-child(8) { animation-delay: 0.24s; }
+
+/* ========================================================================= */
+/* KOREAN STATUS UPDATER SCREEN */
+/* ========================================================================= */
+.updating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    gap: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(8px);
+    animation: revealCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.updating-glow-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.8);
+    animation: pulseGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.9); opacity: 0.5; box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.4); }
+    50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 16px 4px rgba(255, 255, 255, 0.8); }
+    100% { transform: scale(0.9); opacity: 0.5; box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.4); }
+}
+
+.updating-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: 0.05em;
+}
+
+.updating-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
