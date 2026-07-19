@@ -795,7 +795,7 @@ function initApp() {
             <div class="sidebar-socials">
               <a href="#" target="_blank" rel="noopener noreferrer" title="YouTube">${icons.youtube}</a>
               <a href="https://instagram.com/donicaim" target="_blank" rel="noopener noreferrer" title="Instagram">${icons.instagram}</a>
-              <a href="https://discord.com/users/1511625910170943579" class="discord-btn" target="_blank" rel="noopener noreferrer" title="Discord">${icons.discord}<span class="discord-hover">@bitleshark</span></a>
+              <a href="https://discord.com/users/1511625910170943579" class="discord-btn" target="_blank" rel="noopener noreferrer" title="Discord">${icons.discord}<span class="discord-hover">@b1tleshark</span></a>
             </div>
             <div class="sidebar-divider"></div>
             
