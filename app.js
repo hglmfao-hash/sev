@@ -81,7 +81,7 @@ const i18n = {
     motherboard: "Motherboard",
     ram: "RAM",
     storage: "Storage",
-    displayName: "aki",
+    displayName: "rowan",
     monitorValue: '(click for more info)',
     portfolioAll: "All",
     portfolioLongForm: "Long Form",
@@ -764,7 +764,7 @@ let webglInitialized = false;
 
 window.toggleLang = function() {
   lang = lang === 'en' ? 'kr' : 'en';
-  document.title = lang === 'kr' ? '현우' : 'aki';
+  document.title = lang === 'kr' ? '현우' : 'rowan';
   initApp();
 };
 
@@ -790,12 +790,12 @@ function initApp() {
             <div class="sidebar-profile">
               <img src="avatar.png" alt="sevy" class="sidebar-pfp" onerror="this.src='https://via.placeholder.com/64'">
               <div class="sidebar-name">${t('displayName')}</div>
-              <div class="sidebar-handle">@rykei3</div>
+              <div class="sidebar-handle">@bitleshark</div>
             </div>
             <div class="sidebar-socials">
               <a href="#" target="_blank" rel="noopener noreferrer" title="YouTube">${icons.youtube}</a>
               <a href="https://instagram.com/donicaim" target="_blank" rel="noopener noreferrer" title="Instagram">${icons.instagram}</a>
-              <a href="https://discord.com/users/1511625910170943579" class="discord-btn" target="_blank" rel="noopener noreferrer" title="Discord">${icons.discord}<span class="discord-hover">@rykei3</span></a>
+              <a href="https://discord.com/users/1511625910170943579" class="discord-btn" target="_blank" rel="noopener noreferrer" title="Discord">${icons.discord}<span class="discord-hover">@bitleshark</span></a>
             </div>
             <div class="sidebar-divider"></div>
             
@@ -846,7 +846,7 @@ function initApp() {
     content.className = 'main-content'; 
     void content.offsetWidth; 
     
-    content.innerHTML = ROUTES[page]() + '<div class="main-footer">© aki</div>';
+    content.innerHTML = ROUTES[page]() + '<div class="main-footer">© rowan</div>';
     content.classList.add('glitch-in');
     
     content.scrollTo({ top: 0, behavior: 'smooth' });
@@ -941,7 +941,7 @@ function initSettings() {
     if (btn && btn.dataset.config !== undefined) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderConfigDetail(btn.dataset.config) + '<div class="main-footer">© aki</div>';
+      content.innerHTML = renderConfigDetail(btn.dataset.config) + '<div class="main-footer">© rowan</div>';
       content.classList.add('slide-in-right');
       content.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -949,7 +949,7 @@ function initSettings() {
     if (e.target.closest('#configBack')) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderSettings() + '<div class="main-footer">© aki</div>';
+      content.innerHTML = renderSettings() + '<div class="main-footer">© rowan</div>';
       content.classList.add('slide-in-left');
       content.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -963,8 +963,8 @@ function initProjects() {
     if (btn && btn.dataset.proj) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      if (btn.dataset.proj === 'portfolio') content.innerHTML = renderPortfolio() + '<div class="main-footer">© aki</div>';
-      if (btn.dataset.proj === 'achievements') content.innerHTML = renderAchievements() + '<div class="main-footer">© aki</div>';
+      if (btn.dataset.proj === 'portfolio') content.innerHTML = renderPortfolio() + '<div class="main-footer">© rowan</div>';
+      if (btn.dataset.proj === 'achievements') content.innerHTML = renderAchievements() + '<div class="main-footer">© rowan</div>';
       content.classList.add('slide-in-right');
       content.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -995,7 +995,7 @@ function initProjects() {
     if (e.target.closest('#projBack')) {
       content.className = 'main-content'; 
       void content.offsetWidth;
-      content.innerHTML = renderProjectsRoot() + '<div class="main-footer">© aki</div>';
+      content.innerHTML = renderProjectsRoot() + '<div class="main-footer">© rowan</div>';
       content.classList.add('slide-in-left');
       content.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1347,7 +1347,7 @@ function initWebGL() {
 
 window.selectLang = function(selectedLang) {
   lang = selectedLang;
-  document.title = lang === 'kr' ? '현우' : 'aki';
+  document.title = lang === 'kr' ? '현우' : 'rowan';
   const overlay = document.getElementById('langSelector');
   if (overlay) {
     overlay.style.opacity = '0';
